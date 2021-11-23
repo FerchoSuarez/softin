@@ -10,6 +10,15 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
+     
+      {
+        path: 'empleados',
+        loadChildren: () => import('./Pages/empleados/empleados.module').then((m) => m.EmpleadosModule),
+      },
+      {
+        path: 'proveedores',
+        loadChildren: () => import('./Pages/proveedores/proveedores.module').then((m) => m.ProveedoresModule),
+      },
       {
         path: 'articulos',
         loadChildren: () => import('./Pages/articulos/articulos.module').then((m) => m.ArticulosModule),
@@ -17,6 +26,18 @@ const routes: Routes = [
       {
         path: 'compras',
         loadChildren: () => import('./Pages/compras/compras.module').then((m) => m.ComprasModule),
+      },
+      {
+        path: 'solicitudes',
+        loadChildren: () => import('./Pages/solicitudes/solicitudes.module').then((m) => m.SolicitudesModule),
+      },
+      {
+        path: 'validaciones',
+        loadChildren: () => import('./Pages/validaciones/validaciones.module').then((m) => m.ValidacionesModule),
+      },
+      {
+        path: 'stock',
+        loadChildren: () => import('./Pages/stock/stock.module').then((m) => m.StockModule),
       },
       {
         path: '',

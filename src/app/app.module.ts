@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './componentes/menu/menu.component';
+import { MenuComponent } from '@Pages/layout/components/menu/menu.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { LayoutComponent } from './Pages/layout/layout.component';
 import { HeaderComponent } from './Pages/layout/components/header/header.component';

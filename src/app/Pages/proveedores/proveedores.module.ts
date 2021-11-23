@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ComprasRoutingModule } from './compras-routing.module';
-import { ComprasComponent } from './compras.component';
+import { ProveedoresRoutingModule } from './proveedores-routing.module';
+import { ProveedoresComponent } from './proveedores.component';
 import { MaterialModule } from "@material/material.module";
 
 
 @NgModule({
   declarations: [
-    ComprasComponent
+    ProveedoresComponent
   ],
   imports: [
     CommonModule,
-    ComprasRoutingModule,
+    ProveedoresRoutingModule,
     MaterialModule
   ]
 })
-export class ComprasModule { }
+export class ProveedoresModule { }
