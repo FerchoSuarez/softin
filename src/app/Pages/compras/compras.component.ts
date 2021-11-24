@@ -36,8 +36,6 @@ export class ComprasComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
-
   }
 
   addBuy(){
@@ -52,7 +50,7 @@ export class ComprasComponent implements OnInit {
         cancelButton: true,
         template: RegistrarComprasComponent,
         paneClass: 'dialog-class',
-        callback: (res)=>{
+        callback: ()=>{
           //do something
         }
       }
