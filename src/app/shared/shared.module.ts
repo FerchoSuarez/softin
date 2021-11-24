@@ -4,6 +4,8 @@ import { AlertDialogComponent } from './components/dialog/alert-dialog/alert-dia
 import { MaterialModule } from "@material/material.module";
 import { RegistrarComprasComponent } from './components/dialog/registrar-compras/registrar-compras.component';
 
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -16,6 +18,12 @@ import { RegistrarComprasComponent } from './components/dialog/registrar-compras
   imports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  exports: [
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

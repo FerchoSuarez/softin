@@ -5,6 +5,8 @@ import { ComprasRoutingModule } from './compras-routing.module';
 import { ComprasComponent } from './compras.component';
 import { MaterialModule } from "@material/material.module";
 
+import { SharedModule } from "@shared/shared.module";
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { MaterialModule } from "@material/material.module";
   imports: [
     CommonModule,
     ComprasRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class ComprasModule { }
