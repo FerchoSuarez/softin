@@ -1,0 +1,51 @@
+<div mat-dialog-content class="m-0 p-0">
+    <div class="dialog">
+        <div class="dialog__header">
+            <h3 class="text-center fz-32 mb-20 card-header bg-dark bg-gradient text-light sm-2">
+                <strong>Ingresar Proveedor</strong>
+            </h3>
+        </div>
+        <form class="dialog__body" [formGroup]="form" (submit)="saveForm()">
+            <div class="w3-left-align">
+
+                <label for="administrador-txt" class="form-label mt-2"> <b>Administrador:</b> </label>
+                <select formControlName="proveedor" type="text" placeholder="Ingrese el nombre del administrador"
+                    class="form-control" id="administrador-txt">
+                    <option></option>
+                    <option>Diego Suarez</option>
+
+                </select>
+
+                <label for="nombreproveedor-txt" class="form-label mt-2"><b>Nombre Empresa:</b> </label>
+                <input formControlName="nombreproveedor" type="text" placeholder="Ingrese la razón social"
+                    class="form-control" id="nombreproveedor-txt" />
+
+                <label for="nitproveedor-txt" class="form-label mt-2"><b>Nit Proveedor:</b> </label>
+                <input formControlName="nitproveedor" type="number" placeholder="Ingrese el numero del Nit"
+                    class="form-control" id="nitproveedor-txt" />
+
+                <label for="telefonoproveedor-txt" class="form-label mt-2"><b>Telefono:</b> </label>
+                <input formControlName="telefonoproveedor" type="tel" placeholder="Ingrese el numero de contacto"
+                    class="form-control" id="telefonoproveedor-txt" />
+
+                <label for="direccionproveedor-txt" class="form-label mt-2"> <b>Dirección:</b></label>
+                <input formControlName="direccionproveedor" type="text" placeholder="Ingrese la dirección de la empresa"
+                    class="form-control" id="direccionproveedor-txt" />
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-4 mb-2">
+                    <button type="submit" class="btn btn-outline-success btn-block"
+                        [disabled]="form.invalid">Registrar</button>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <button type="button" class="btn btn-outline-danger btn-block"
+                        (click)="form.reset()">Limpiar</button>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <button type="button" class="btn btn-outline-danger btn-block"
+                        (click)="closeDialog(false)">Cerrar</button>
+                </div>
+            </div>
+        </form>
+    </div>

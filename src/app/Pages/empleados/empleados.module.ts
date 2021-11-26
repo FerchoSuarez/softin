@@ -5,6 +5,8 @@ import { EmpleadosRoutingModule } from './empleados-routing.module';
 import { EmpleadosComponent } from './empleados.component';
 import { MaterialModule } from "@material/material.module";
 
+import { SharedModule } from "@shared/shared.module";
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { MaterialModule } from "@material/material.module";
   imports: [
     CommonModule,
     EmpleadosRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
 
   ]
 })

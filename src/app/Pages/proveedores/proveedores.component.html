@@ -1,70 +1,64 @@
-
-
 <div class="container">
 
- <mat-toolbar>
-   <span>Listado <b>Proveedores</b>  </span>
-   
-   <button type="button" class="btn btn-outline-success ml-auto" routerLink="/registrar-proveedores">Agregar</button> 
-    
-   
+  <mat-toolbar>
+    <span>Listado <b>Proveedores</b> </span>
+    <button type="button" class="btn btn-outline-success ml-auto" (click)="addBuy()">Agregar</button>
+  </mat-toolbar>
 
- </mat-toolbar>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
- <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
+    <!-- Position Column -->
+    <ng-container matColumnDef="administrador">
+      <th mat-header-cell *matHeaderCellDef> <b>Interventor</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.administrador}} </td>
+    </ng-container>
 
-   <!-- Position Column -->
-   <ng-container matColumnDef="nit">
-     <th mat-header-cell *matHeaderCellDef> <b>Nit</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.nit}} </td>
-   </ng-container>
- 
-   <!-- Name Column -->
-   <ng-container matColumnDef="razonsocial">
-     <th mat-header-cell *matHeaderCellDef> <b>Razón Social</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.razonsocial}} </td>
-   </ng-container>
- 
-   <!-- Weight Column -->
-   <ng-container matColumnDef="direccion">
-     <th mat-header-cell *matHeaderCellDef> <b>Dirección</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
-   </ng-container>
- 
-   <!-- Symbol Column -->
-   <ng-container matColumnDef="email">
-     <th mat-header-cell *matHeaderCellDef> <b>Email</b>  </th>
-     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-   </ng-container>
+    <!--Name Column--> -->
+    <ng-container matColumnDef="nombreproveedor">
+      <th mat-header-cell *matHeaderCellDef> <b>Nombre Proveedor</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreproveedor}} </td>
+    </ng-container>
 
-   <ng-container matColumnDef="telefono">
-     <th mat-header-cell *matHeaderCellDef> <b>Telefono</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
-   </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nitproveedor">
+      <th mat-header-cell *matHeaderCellDef> <b>Nit Proveedor</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nitproveedor}} </td>
+    </ng-container>
 
-   <ng-container matColumnDef="acciones">
-     <th mat-header-cell *matHeaderCellDef> </th>
-     <td mat-cell *matCellDef="let element" style="text-align: right"> 
-      
-        <a class="pointer" style="color: #1878b0;" matTooltip="Ver Usuario">
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="telefonoproveedor">
+      <th mat-header-cell *matHeaderCellDef> <b>Numero de Contacto</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.telefonoproveedor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="direccionproveedor">
+      <th mat-header-cell *matHeaderCellDef> <b>Dirección del Proveedor</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.direccionproveedor}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right">
+
+        <a class="pointer" style="color: #1878b0;" matTooltip="Ver Proveedor">
           <mat-icon>search</mat-icon>
-       </a>
+        </a>
 
-       <a class="pointer"  style="color: #1f516f;" matTooltip="Editar Usuario">
-         <mat-icon>edit</mat-icon>
-      </a >
-       
-      <a class="pointer"  style="color: #e15639;"matTooltip="Eliminar Usuario">
-       <mat-icon>delete</mat-icon>
-    </a>
+        <a class="pointer" style="color: #1f516f;" matTooltip="Editar Proveedor">
+          <mat-icon>edit</mat-icon>
+        </a>
+
+        <a class="pointer" style="color: #e15639;" matTooltip="Eliminar Proveedor">
+          <mat-icon>delete</mat-icon>
+        </a>
 
 
- 
-     </td>
-   </ng-container>
- 
-   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
- </table>
- 
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
 </div>

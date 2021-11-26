@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-
-//components
 import { ProveedoresComponent  } from "./proveedores.component";
 
 const routes: Routes = [

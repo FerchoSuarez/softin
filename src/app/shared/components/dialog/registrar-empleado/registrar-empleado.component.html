@@ -1,0 +1,55 @@
+<div mat-dialog-content class="m-0 p-0">
+    <div class="dialog">
+        <div class="dialog__header">
+            <h3 class="text-center fz-32 mb-20 card-header bg-dark bg-gradient text-light sm-2">
+                <strong>Ingresar Empleado</strong>
+            </h3>
+        </div>
+        <form class="dialog__body" [formGroup]="form" (submit)="saveForm()">
+            <div class="w3-left-align">
+
+                <label for="administrador-txt" class="form-label mt-2"> <b>Administrador:</b> </label>
+                <select formControlName="proveedor" type="text" placeholder="Ingrese el nombre del administrador"
+                    class="form-control" id="administrador-txt">
+                    <option></option>
+                    <option>Diego Suarez</option>
+
+                </select>
+
+                <label for="cedulaEmpleado-txt" class="form-label mt-2"><b>N° Cedula:</b> </label>
+                <input formControlName="cedulaEmpleado" type="text" placeholder="Ingrese el numero de documento"
+                    class="form-control" id="cedulaEmpleado-txt" />
+
+                <label for="nombreEmpleado-txt" class="form-label mt-2"><b>Nombre:</b> </label>
+                <input formControlName="nombreEmpleado" type="text" placeholder="Ingrese el nombre" class="form-control"
+                    id="nombreEmpleado-txt" />
+
+                <label for="apellidoEmpleado-txt" class="form-label mt-2"><b>Apellido:</b> </label>
+                <input formControlName="apellidoEmpleado" type="text" placeholder="Ingrese el apellido"
+                    class="form-control" id="apellidoEmpleado-txt" />
+
+                <label for="telefonoEmpleado-txt" class="form-label mt-2"> <b>Telefono:</b></label>
+                <input formControlName=" telefonoEmpleado" type="tel" placeholder="Ingrese el numero de telefono"
+                    class="form-control" id="telefonoEmpleado-txt" />
+
+                <label for="cargoEmpleado-txt" class="form-label mt-2"> <b>Cargo:</b></label>
+                <input formControlName="cargoEmpleado" type="tel" placeholder="Ingrese el cargo que desempeñara"
+                    class="form-control" id="cargoEmpleado-txt" />
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-lg-4 mb-2">
+                    <button type="submit" class="btn btn-outline-success btn-block"
+                        [disabled]="form.invalid">Registrar</button>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <button type="button" class="btn btn-outline-danger btn-block"
+                        (click)="form.reset()">Limpiar</button>
+                </div>
+                <div class="col-lg-4 mb-2">
+                    <button type="button" class="btn btn-outline-danger btn-block"
+                        (click)="closeDialog(false)">Cerrar</button>
+                </div>
+            </div>
+        </form>
+    </div>

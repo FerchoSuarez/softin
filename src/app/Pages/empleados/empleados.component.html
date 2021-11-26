@@ -1,81 +1,73 @@
+<div class="container">
 
- 
- <div class="container">
+  <mat-toolbar>
+    <span>Listado <b>Empleados</b> </span>
 
-    <mat-toolbar>
-      <span>Listado <b>Empleados</b>  </span>
-      
-      <button type="button" class="btn btn-outline-success ml-auto" routerLink="/registrar-empleados">Agregar</button> 
-       
-      
-  
-    </mat-toolbar>
-  
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
-  
-      <!-- Position Column -->
-      <ng-container matColumnDef="cedula">
-        <th mat-header-cell *matHeaderCellDef> <b>Cedula</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.cedula}} </td>
-      </ng-container>
-    
-      <!-- Name Column -->
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> <b>Nombre</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-      </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="apellido">
-        <th mat-header-cell *matHeaderCellDef> <b>Apellido</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
-      </ng-container>
-    
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="dirección">
-        <th mat-header-cell *matHeaderCellDef> <b>Direción</b>  </th>
-        <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> <b>Email</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="telefono">
-        <th mat-header-cell *matHeaderCellDef> <b>Telefono</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="grupo sanguineo">
-        <th mat-header-cell *matHeaderCellDef> <b>Grupo Sanguineao</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.gruposanguineo}} </td>
-      </ng-container>
-  
-      <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef> </th>
-        <td mat-cell *matCellDef="let element" style="text-align: right"> 
-         
-           <a class="pointer" style="color: #1878b0;" matTooltip="Ver Usuario">
-             <mat-icon>search</mat-icon>
-          </a>
-  
-          <a class="pointer"  style="color: #1f516f;" matTooltip="Editar Usuario">
-            <mat-icon>edit</mat-icon>
-         </a >
-          
-         <a class="pointer"  style="color: #e15639;"matTooltip="Eliminar Usuario">
+    <button type="button" class="btn btn-outline-success ml-auto" (click)="addBuy()">Agregar</button>
+
+
+
+  </mat-toolbar>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="administrador">
+      <th mat-header-cell *matHeaderCellDef> <b>Interventor</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.administrador}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="cedulaEmpleado">
+      <th mat-header-cell *matHeaderCellDef> <b>Cedula</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.cedulaEmpleado}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nombreEmpleado">
+      <th mat-header-cell *matHeaderCellDef> <b>Nombre</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreEmpleado}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="apellidoEmpleado">
+      <th mat-header-cell *matHeaderCellDef> <b>Apellido</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.apellidoEmpleado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefonoEmpleado">
+      <th mat-header-cell *matHeaderCellDef> <b>Telefono</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.telefonoEmpleado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cargoEmpleado">
+      <th mat-header-cell *matHeaderCellDef> <b>Cargo</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.cargoEmpleado}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right">
+
+        <a class="pointer" style="color: #1878b0;" matTooltip="Ver Empleado">
+          <mat-icon>search</mat-icon>
+        </a>
+
+        <a class="pointer" style="color: #1f516f;" matTooltip="Editar Empleado">
+          <mat-icon>edit</mat-icon>
+        </a>
+
+        <a class="pointer" style="color: #e15639;" matTooltip="Eliminar Empleado">
           <mat-icon>delete</mat-icon>
-       </a>
-  
-  
-    
-        </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    
-  </div>
-  
+        </a>
+
+
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

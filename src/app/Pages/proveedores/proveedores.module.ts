@@ -5,6 +5,8 @@ import { ProveedoresRoutingModule } from './proveedores-routing.module';
 import { ProveedoresComponent } from './proveedores.component';
 import { MaterialModule } from "@material/material.module";
 
+import { SharedModule } from "@shared/shared.module";
+
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { MaterialModule } from "@material/material.module";
   imports: [
     CommonModule,
     ProveedoresRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class ProveedoresModule { }

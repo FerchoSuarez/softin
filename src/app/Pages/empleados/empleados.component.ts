@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
+//services
+import { DialogService } from "@core/services/dialog.service";
+import { left } from '@popperjs/core';
+
+import { AlertDialogComponent } from "@shared/components/dialog/alert-dialog/alert-dialog.component";
+import { RegistrarEmpleadoComponent} from "@shared/components/dialog/registrar-empleado/registrar-empleado.component";
+
+
 
 export interface PeriodicElement {
-  cedula: number;
-  nombre: string;
-  apellido: string;
-  direccion: string;
-  email: string;
-  telefono: number;
-  gruposanguineo: string;
+  administrador: string;
+  cedulaEmpleado: string;
+  nombreEmpleado: string;
+  apellidoEmpleado: string;
+  telefonoEmpleado: string;
+  cargoEmpleado: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {cedula:  1114399506, nombre: 'Diego Fernando', apellido: "Suarez Realpe", direccion: 'Cra 5a #35a-47', email: "fercho0989@gmail.com", telefono: 3002148738, gruposanguineo: "O-"},
-  {cedula:  1045715871, nombre: 'Alexandra', apellido: "Altamar Garcerant", direccion: 'Cra 5a #35a-47', email: "axeladuvan@gmail.com", telefono: 3002148738, gruposanguineo: "A-"},
-  
-
-];
+const ELEMENT_DATA: PeriodicElement[] = [];
 
 @Component({
   selector: 'app-empleados',
@@ -24,13 +26,46 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./empleados.component.css']
 })
 export class EmpleadosComponent implements OnInit {
-  displayedColumns: string[] = ['cedula', 'nombre', 'apellido', 'dirección', 'email', 'telefono','grupo sanguineo', 'acciones', ];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  
+  displayedColumns: string[] = ['administrador', 'cedulaEmpleado', 'nombreEmpleado', 'apellidoEmpleado', 'telefonoEmpleado', 'cargoEmpleado', 'acciones', ];
+  dataSource:any = JSON.parse(localStorage.getItem('empleados'));
+
+  
+  constructor(private dialogService: DialogService) { }
   
 
   ngOnInit(): void {
   }
 
+
+  addBuy(){
+
+    this.dialogService.openDialog(
+      {
+        template: RegistrarEmpleadoComponent,
+        paneClass: 'dialog-class',
+        callback: (res)=>{
+          //do something
+          if(res){
+            this.dataSource = JSON.parse(localStorage.getItem('empleados'))
+          }
+        }
+      }
+    );
+    
+  }
+
+  deleteBuy(element){
+    let empleados = JSON.parse(localStorage.getItem('empleados'))
+    if (!empleados) {
+      empleados=[]
+    }
+    let key = empleados.findIndex((item)=> item.administrador == element.administrador)
+    if (key >= 0) {
+      empleados.splice(key,1)
+      localStorage.setItem('empleados', JSON.stringify(empleados))
+      this.dataSource = JSON.parse(localStorage.getItem('empleados'))
+    }
+  }
 
 }
