@@ -1,70 +1,74 @@
-
 <div class="container">
 
- <mat-toolbar>
-   <span>Listado <b>Articulos</b>  </span>
-   
-   <button type="button" class="btn btn-outline-success ml-auto" routerLink="/registrar-articulos">Agregar</button> 
-    
-   
+  <mat-toolbar>
+    <span>Listado <b>Articulos</b> </span>
+    <button type="button" class="btn btn-outline-success ml-auto" (click)="addBuy()">Agregar</button>
+  </mat-toolbar>
 
- </mat-toolbar> 
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
- <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
+    <!-- Position Column -->
+    <ng-container matColumnDef="nombreproveedor">
+      <th mat-header-cell *matHeaderCellDef> <b>Referencia</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreproveedor}} </td>
+    </ng-container>
 
-   <!-- Position Column -->
-   <ng-container matColumnDef="referencia">
-     <th mat-header-cell *matHeaderCellDef> <b>Referencia</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.referencia}} </td>
-   </ng-container>
- 
-   <!-- Name Column -->
-   <ng-container matColumnDef="valor">
-     <th mat-header-cell *matHeaderCellDef> <b>Valor</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
-   </ng-container>
- 
-   <!-- Weight Column -->
-   <ng-container matColumnDef="cantidad">
-     <th mat-header-cell *matHeaderCellDef> <b>Cantidad</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-   </ng-container>
- 
-   <!-- Symbol Column -->
-   <ng-container matColumnDef="codigo">
-     <th mat-header-cell *matHeaderCellDef> <b>Codigo</b>  </th>
-     <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
-   </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="numerofactura">
+      <th mat-header-cell *matHeaderCellDef> <b>Valor</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.numerofactura}} </td>
+    </ng-container>
 
-   <ng-container matColumnDef="numerofactura">
-     <th mat-header-cell *matHeaderCellDef> <b>N° Factura</b> </th>
-     <td mat-cell *matCellDef="let element"> {{element.numerofactura}} </td>
-   </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="nombreempleado">
+      <th mat-header-cell *matHeaderCellDef> <b>Cantidad</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreempleado}}} </td>
+    </ng-container>
 
-   <ng-container matColumnDef="acciones">
-     <th mat-header-cell *matHeaderCellDef> </th>
-     <td mat-cell *matCellDef="let element" style="text-align: right"> 
-      
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nombrearticulo">
+      <th mat-header-cell *matHeaderCellDef> <b>Codigo</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombrearticulo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precioarticulo">
+      <th mat-header-cell *matHeaderCellDef> <b>N° Factura</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.precioarticulo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="codigoarticulo">
+      <th mat-header-cell *matHeaderCellDef> <b>N° Factura</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.codigoarticulo} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidadarticulo">
+      <th mat-header-cell *matHeaderCellDef> <b>N° Factura</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.cantidadarticulo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element" style="text-align: right">
+
         <a class="pointer" style="color: #1878b0;" matTooltip="Ver Usuario">
           <mat-icon>search</mat-icon>
-       </a>
+        </a>
 
-       <a class="pointer"  style="color: #1f516f;" matTooltip="Editar Usuario">
-         <mat-icon>edit</mat-icon>
-      </a >
-       
-      <a class="pointer"  style="color: #e15639;"matTooltip="Eliminar Usuario">
-       <mat-icon>delete</mat-icon>
-    </a>
+        <a class="pointer" style="color: #1f516f;" matTooltip="Editar Usuario">
+          <mat-icon>edit</mat-icon>
+        </a>
+
+        <a class="pointer" style="color: #e15639;" matTooltip="Eliminar Usuario">
+          <mat-icon>delete</mat-icon>
+        </a>
 
 
- 
-     </td>
-   </ng-container>
- 
-   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
- </table>
- 
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
 </div>
-

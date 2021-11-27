@@ -8,6 +8,7 @@ import { RegistrarEmpleadoComponent } from './components/dialog/registrar-emplea
 
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { RegistrarProveedorComponent } from './components/dialog/registrar-proveedor/registrar-proveedor.component';
+import { RegistrarArticuloComponent } from './components/dialog/registrar-articulo/registrar-articulo.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { RegistrarProveedorComponent } from './components/dialog/registrar-prove
     RegistrarComprasComponent,
     RegistrarEmpleadoComponent,
     RegistrarProveedorComponent,
+    RegistrarArticuloComponent,
   
   ],
   entryComponents: [

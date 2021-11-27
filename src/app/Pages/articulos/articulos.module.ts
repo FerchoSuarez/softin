@@ -5,6 +5,8 @@ import { ArticulosRoutingModule } from './articulos-routing.module';
 import { ArticulosComponent } from './articulos.component';
 import { MaterialModule } from "@material/material.module";
 
+
+
 @NgModule({
   declarations: [
     ArticulosComponent
@@ -12,7 +14,8 @@ import { MaterialModule } from "@material/material.module";
   imports: [
     CommonModule,
     ArticulosRoutingModule,
-    MaterialModule
+    MaterialModule,
+   
   ]
 })
 export class ArticulosModule { }

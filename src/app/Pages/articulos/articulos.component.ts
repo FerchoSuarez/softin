@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
+//services
+import { DialogService } from "@core/services/dialog.service";
+import { left } from '@popperjs/core';
+
+import { AlertDialogComponent } from "@shared/components/dialog/alert-dialog/alert-dialog.component";
+import { RegistrarArticuloComponent} from "@shared/components/dialog/registrar-articulo/registrar-articulo.component";
+
+
 
 
 export interface PeriodicElement {
-  referencia: string;
-  valor: number;
-  cantidad: number;
-  codigo: string;
-  numerofactura: number;
+  nombreproveedor: string;
+  numerofactura: string;
+  nombreempleado:string;
+  nombrearticulo: string;
+  precioarticulo: string;
+  codigoarticulo: string;
+  cantidadarticulo: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {referencia:  "Bujia 12 v", valor: 30000, cantidad: 5, codigo: "b12v", numerofactura: 525},
- 
-
-];
+const ELEMENT_DATA: PeriodicElement[] = [];
 
 
 
@@ -24,12 +30,43 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./articulos.component.css']
 })
 export class ArticulosComponent implements OnInit {
-displayedColumns: string[] = ['referencia', 'valor', 'cantidad', 'codigo', 'numerofactura', 'acciones', ];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['nombreproveedor', 'numerofactura', 'nombreempleado', 'nombrearticulo', 'precioarticulo', 'cantidadarticulo', 'acciones', ];
+  dataSource:any = JSON.parse(localStorage.getItem('articulos'));
 
-  constructor() { }
+  constructor(private dialogService: DialogService) { }
 
   ngOnInit(): void {
   }
+
+  addBuy(){
+
+    this.dialogService.openDialog(
+      {
+        template: RegistrarArticuloComponent,
+        paneClass: 'dialog-class',
+        callback: (res)=>{
+          //do something
+          if(res){
+            this.dataSource = JSON.parse(localStorage.getItem('articulos'))
+          }
+        }
+      }
+    );
+    
+  }
+
+  deleteBuy(element){
+    let articulos = JSON.parse(localStorage.getItem('articulos'))
+    if (!articulos) {
+      articulos=[]
+    }
+    let key = articulos.findIndex((item)=> item.numeroDeFactura == element.numeroDeFactura)
+    if (key >= 0) {
+      articulos.splice(key,1)
+      localStorage.setItem('articulos', JSON.stringify(articulos))
+      this.dataSource = JSON.parse(localStorage.getItem('articulos'))
+    }
+  }
+
 
 }

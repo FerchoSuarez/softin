@@ -9,8 +9,8 @@ import { RegistrarComprasComponent} from "@shared/components/dialog/registrar-co
 
 
 export interface PeriodicElement {
-  proveedor: string;
-  numerofactura: string;
+  nombreproveedor: string;
+  numeroDefactura: string;
   fecha: string;
   producto: string;
   valor: string;
