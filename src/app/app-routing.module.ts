@@ -27,14 +27,7 @@ const routes: Routes = [
         path: 'compras',
         loadChildren: () => import('./Pages/compras/compras.module').then((m) => m.ComprasModule),
       },
-      {
-        path: 'solicitudes',
-        loadChildren: () => import('./Pages/solicitudes/solicitudes.module').then((m) => m.SolicitudesModule),
-      },
-      {
-        path: 'validaciones',
-        loadChildren: () => import('./Pages/validaciones/validaciones.module').then((m) => m.ValidacionesModule),
-      },
+      
       {
         path: 'stock',
         loadChildren: () => import('./Pages/stock/stock.module').then((m) => m.StockModule),
