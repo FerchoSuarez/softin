@@ -33,27 +33,25 @@ export class RegistrarArticuloComponent implements OnInit {
     this.form = this.formBuilder.group({
       nombreproveedor: ['', [Validators.required]],
       numerofactura: ['', [Validators.required]],
-      nombreempleado: ['', [Validators.required]],
-      nombrearticulo: ['', [Validators.required]],
-      precioarticulo: ['', [Validators.required]],
+      producto: ['', [Validators.required]],
       codigoarticulo: ['', [Validators.required]],
-      cantidadarticulo: ['', [Validators.required]],
+      precioarticulo: ['', [Validators.required]],
     })
   }
-  saveForm(){
 
+  saveForm(){
     if(this.form.valid){
       let articulos = JSON.parse(localStorage.getItem('articulos'))
       if (!articulos) {
         articulos=[]
       }
       articulos.push(this.form.value);
-      localStorage.setItem('articulos', JSON.stringify(articulos))
+      console.log(this.form.value);
+      localStorage.setItem('articulos', JSON.stringify(articulos));
       this.closeDialog(true);
     }else{
       location.reload();
     }
-    
   }
 
 }

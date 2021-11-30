@@ -8,9 +8,22 @@
     <form class="dialog__body" [formGroup]="form" (submit)="saveForm()">
       <div class="w3-left-align">
 
-        <label for="proveedor-txt" class="form-label mt-2"><b>Nombre Proveedor:</b> </label>
-        <input formControlName="proveedor" type="text" placeholder="Ingrese el nombre del proveedor"
-          class="form-control" id="proveedor-txt" />
+        <div class="group">
+          <label for="proveedor-txt" class="form-label mt-2"> <b>Seleccione el Proveedor:</b> </label>
+          <select formControlName="proveedor" type="text" class="form-control" id="proveedor-txt">
+            <option *ngFor="let proveedor of listProveedores" [value]="proveedor.nitproveedor">
+              {{proveedor.administrador}} </option>
+          </select>
+        </div>
+
+        <div class="group">
+          <label for="articulo-txt" class="form-label mt-2"> <b>Seleccione el Articulo:</b> </label>
+          <select formControlName="articulo" type="text" class="form-control" id="articulo-txt">
+            <option *ngFor="let articulo of listArticulos" [value]="articulo.codigoarticulo">
+              {{articulo.producto}}
+            </option>
+          </select>
+        </div>
 
         <label for="numeroDeFactura-txt" class="form-label mt-2"><b>N° Factura:</b> </label>
         <input formControlName="numeroDeFactura" type="text" placeholder="Ingrese el numero de factura"
@@ -19,9 +32,6 @@
         <label for="Fecha-txt" class="form-label mt-2"><b>Fecha:</b> </label>
         <input formControlName="fecha" type="date" placeholder="Ingrese la fecha" class="form-control" id="fecha-txt" />
 
-        <label for="Producto-txt" class="form-label mt-2"><b>Producto:</b> </label>
-        <input formControlName="producto" type="text" placeholder="Ingrese el nombre del producto" class="form-control"
-          id="producto-txt" />
 
         <label for="Valor-txt" class="form-label mt-2"> <b>Valor:</b></label>
         <input formControlName="valor" type="number" placeholder="Ingrese sel valor del producto" class="form-control"

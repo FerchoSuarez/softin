@@ -8,13 +8,11 @@
         <form class="dialog__body" [formGroup]="form" (submit)="saveForm()">
             <div class="w3-left-align">
 
-                <label for="administrador-txt" class="form-label mt-2"> <b>Administrador:</b> </label>
-                <select formControlName="administrador" type="text" placeholder="Ingrese el nombre del administrador"
-                    class="form-control" id="administrador-txt">
-                    <option></option>
-                    <option>Diego Suarez</option>
-
-                </select>
+                <div class="group">
+                    <label for="administrador-txt" class="form-label mt-2"> <b>Administrador:</b> </label>
+                    <input formControlName="administrador" type="text" placeholder="Ingrese el nombre del administrador"
+                        class="form-control" id="nombreproveedor-txt" />
+                </div>
 
                 <label for="nombreproveedor-txt" class="form-label mt-2"><b>Nombre Empresa:</b> </label>
                 <input formControlName="nombreproveedor" type="text" placeholder="Ingrese la razón social"

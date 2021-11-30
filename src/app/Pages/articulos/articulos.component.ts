@@ -13,11 +13,10 @@ import { RegistrarArticuloComponent} from "@shared/components/dialog/registrar-a
 export interface PeriodicElement {
   nombreproveedor: string;
   numerofactura: string;
-  nombreempleado:string;
-  nombrearticulo: string;
-  precioarticulo: string;
+  producto:string;
   codigoarticulo: string;
   cantidadarticulo: string;
+  precioarticulo: string; 
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [];
@@ -30,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
   styleUrls: ['./articulos.component.css']
 })
 export class ArticulosComponent implements OnInit {
-  displayedColumns: string[] = ['nombreproveedor', 'numerofactura', 'nombreempleado', 'nombrearticulo', 'precioarticulo', 'cantidadarticulo', 'acciones', ];
+  displayedColumns: string[] = ['nombreproveedor', 'numerofactura', 'producto', 'codigoarticulo', 'precioarticulo', 'acciones', ];
   dataSource:any = JSON.parse(localStorage.getItem('articulos'));
 
   constructor(private dialogService: DialogService) { }

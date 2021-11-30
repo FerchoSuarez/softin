@@ -14,11 +14,26 @@ export class RegistrarComprasComponent implements OnInit {
 
   form: FormGroup;
 
+  listProveedores = []
+  listArticulos = []
+
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<RegistrarComprasComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Alert
     ) { 
+      const proveedores = JSON.parse(localStorage.getItem('proveedores'));
+      if(proveedores){
+        if(proveedores.length){
+          this.listProveedores = proveedores;
+        }
+      }
+      const articulos = JSON.parse(localStorage.getItem('articulos'));
+      if(articulos){
+        if(articulos.length){
+          this.listArticulos = articulos;
+        }
+      }
     this.buildForm();
   }
 
@@ -32,9 +47,9 @@ export class RegistrarComprasComponent implements OnInit {
   buildForm(): void{
     this.form = this.formBuilder.group({
       proveedor: ['', [Validators.required]],
+      articulo: ['', [Validators.required]],
       numeroDeFactura: ['', [Validators.required]],
       fecha: ['', [Validators.required]],
-      producto: ['', [Validators.required]],
       valor: ['', [Validators.required]],
     })
   }

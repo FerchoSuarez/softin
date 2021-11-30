@@ -7,25 +7,22 @@
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
-    <!-- Position Column -->
     <ng-container matColumnDef="administrador">
       <th mat-header-cell *matHeaderCellDef> <b>Interventor</b> </th>
       <td mat-cell *matCellDef="let element"> {{element.administrador}} </td>
     </ng-container>
-
-    <!--Name Column--> -->
+    >
     <ng-container matColumnDef="nombreproveedor">
       <th mat-header-cell *matHeaderCellDef> <b>Nombre Proveedor</b> </th>
       <td mat-cell *matCellDef="let element"> {{element.nombreproveedor}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="nitproveedor">
       <th mat-header-cell *matHeaderCellDef> <b>Nit Proveedor</b> </th>
       <td mat-cell *matCellDef="let element"> {{element.nitproveedor}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
+
     <ng-container matColumnDef="telefonoproveedor">
       <th mat-header-cell *matHeaderCellDef> <b>Numero de Contacto</b> </th>
       <td mat-cell *matCellDef="let element"> {{element.telefonoproveedor}} </td>
