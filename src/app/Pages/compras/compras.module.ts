@@ -1,3 +1,4 @@
+import { EmpleadosModule } from './../empleados/empleados.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +17,8 @@ import { SharedModule } from "@shared/shared.module";
     CommonModule,
     ComprasRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    EmpleadosModule
   ]
 })
 export class ComprasModule { }

@@ -7,21 +7,16 @@ import { left } from '@popperjs/core';
 import { AlertDialogComponent } from "@shared/components/dialog/alert-dialog/alert-dialog.component";
 import { RegistrarArticuloComponent} from "@shared/components/dialog/registrar-articulo/registrar-articulo.component";
 
-
-
-
 export interface PeriodicElement {
   nombreproveedor: string;
   numerofactura: string;
   producto:string;
   codigoarticulo: string;
   cantidadarticulo: string;
-  precioarticulo: string; 
+  precioarticulo: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [];
-
-
 
 @Component({
   selector: 'app-articulos',
@@ -29,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [];
   styleUrls: ['./articulos.component.css']
 })
 export class ArticulosComponent implements OnInit {
-  displayedColumns: string[] = ['nombreproveedor', 'numerofactura', 'producto', 'codigoarticulo', 'precioarticulo', 'acciones', ];
+  displayedColumns: string[] = ['nombreproveedor', 'numerofactura', 'producto', 'codigoarticulo', 'precioarticulo', 'cantidadInicial', 'acciones', ];
   dataSource:any = JSON.parse(localStorage.getItem('articulos'));
 
   constructor(private dialogService: DialogService) { }
@@ -51,7 +46,7 @@ export class ArticulosComponent implements OnInit {
         }
       }
     );
-    
+
   }
 
   deleteBuy(element){

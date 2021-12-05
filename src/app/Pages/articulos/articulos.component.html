@@ -7,10 +7,6 @@
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z10">
 
-    cantidadarticulo: string;
-    precioarticulo: string;
-
-
     <ng-container matColumnDef="nombreproveedor">
       <th mat-header-cell *matHeaderCellDef> <b>Proveedor</b> </th>
       <td mat-cell *matCellDef="let element"> {{element.nombreproveedor}} </td>
@@ -33,9 +29,9 @@
       <td mat-cell *matCellDef="let element"> {{element.codigoarticulo}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="cantidadarticulo">
+    <ng-container matColumnDef="cantidadInicial">
       <th mat-header-cell *matHeaderCellDef> <b>Cantidad</b> </th>
-      <td mat-cell *matCellDef="let element"> {{element.cantidadarticulo}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.cantidadInicial}} </td>
     </ng-container>
 
 

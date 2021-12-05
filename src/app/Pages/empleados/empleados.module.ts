@@ -18,6 +18,9 @@ import { SharedModule } from "@shared/shared.module";
     MaterialModule,
     SharedModule
 
+  ],
+  exports: [
+    EmpleadosComponent
   ]
 })
 export class EmpleadosModule { }

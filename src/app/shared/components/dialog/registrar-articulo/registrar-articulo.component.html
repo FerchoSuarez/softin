@@ -1,52 +1,55 @@
 <div mat-dialog-content class="m-0 p-0">
-    <div class="dialog">
-        <div class="dialog__header">
-            <h3 class="text-center fz-32 mb-20 card-header bg-dark bg-gradient text-light sm-2">
-                <strong>Ingresar Articulo</strong>
-            </h3>
-        </div>
-        <form class="dialog__body" [formGroup]="form" (submit)="saveForm()">
-            <div class="w3-left-align">
-
-                <label for="nombreproveedor-txt" class="form-label mt-2"> <b>Nombre Proveedor:</b> </label>
-                <select formControlName="nombreproveedor" type="text" placeholder="Ingrese el nombre del proveedor"
-                    class="form-control" id="nombreproveedor-txt">
-                    <option>Diego Suarez</option>
-                </select>
-
-                <label for="numerofactura-txt" class="form-label mt-2"> <b>N° Factura:</b> </label>
-                <select formControlName="numerofactura" type="text" placeholder="Ingrese el numero de factura"
-                    class="form-control" id="numerofactura-txt">
-                    <option>1250</option>
-                </select>
-
-                <label for="producto-txt" class="form-label mt-2"> <b>Producto:</b> </label>
-                <input formControlName="producto" type="text" placeholder="Nombre del producto" class="form-control"
-                    id="producto-txt" />
-
-                <label for="codigoarticulo-txt" class="form-label mt-2"> <b>Referencia:</b></label>
-                <input formControlName="codigoarticulo" type="text" placeholder="Ingrese el codigo del articulo"
-                    class="form-control" id="codigoarticulo-txt" />
-
-                <label for="precioarticulo-txt" class="form-label mt-2"> <b>Valor Und:</b></label>
-                <input formControlName="precioarticulo" type="number" placeholder="Ingrese el valor unitario"
-                    class="form-control" id="precioarticulo-txt" />
-
-            </div>
-            <div class="row mt-2">
-                <div class="col-lg-4 mb-2">
-                    <button type="submit" class="btn btn-outline-success btn-block"
-                        [disabled]="form.invalid">Registrar</button>
-
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <button type="button" class="btn btn-outline-danger btn-block"
-                        (click)="form.reset()">Limpiar</button>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <button type="button" class="btn btn-outline-danger btn-block"
-                        (click)="closeDialog(false)">Cerrar</button>
-                </div>
-            </div>
-        </form>
+  <div class="dialog">
+    <div class="dialog__header">
+      <h3 class="text-center fz-32 mb-20 card-header bg-dark bg-gradient text-light sm-2">
+        <strong>Ingresar Articulo</strong>
+      </h3>
     </div>
+    <form class="dialog__body" [formGroup]="form" (submit)="saveForm()">
+      <div class="w3-left-align">
+
+        <label for="nombreproveedor-txt" class="form-label mt-2"> <b>Nombre Proveedor:</b> </label>
+        <select formControlName="nombreproveedor" type="text" placeholder="Ingrese el nombre del proveedor"
+          class="form-control" id="nombreproveedor-txt">
+          <option>Diego Suarez</option>
+        </select>
+
+        <label for="numerofactura-txt" class="form-label mt-2"> <b>N° Factura:</b> </label>
+        <select formControlName="numerofactura" type="text" placeholder="Ingrese el numero de factura"
+          class="form-control" id="numerofactura-txt">
+          <option>1250</option>
+        </select>
+
+        <label for="producto-txt" class="form-label mt-2"> <b>Producto:</b> </label>
+        <input formControlName="producto" type="text" placeholder="Nombre del producto" class="form-control"
+          id="producto-txt" />
+
+        <label for="codigoarticulo-txt" class="form-label mt-2"> <b>Referencia:</b></label>
+        <input formControlName="codigoarticulo" type="text" placeholder="Ingrese el codigo del articulo"
+          class="form-control" id="codigoarticulo-txt" />
+
+        <label for="precioarticulo-txt" class="form-label mt-2"> <b>Valor Und:</b></label>
+        <input formControlName="precioarticulo" type="number" placeholder="Ingrese el valor unitario"
+          class="form-control" id="precioarticulo-txt" />
+
+        <label for="cantidadInicial-txt" class="form-label mt-2"> <b>Cantidad Inicial:</b></label>
+        <input formControlName="cantidadInicial" type="number" placeholder="Ingrese la cantidad inicial"
+          class="form-control" id="cantidadInicial-txt" />
+
+
+
+      </div>
+      <div class="row mt-2">
+        <div class="col-lg-4 mb-2">
+          <button type="submit" class="btn btn-outline-success btn-block" [disabled]="form.invalid">Registrar</button>
+
+        </div>
+        <div class="col-lg-4 mb-2">
+          <button type="button" class="btn btn-outline-danger btn-block" (click)="form.reset()">Limpiar</button>
+        </div>
+        <div class="col-lg-4 mb-2">
+          <button type="button" class="btn btn-outline-danger btn-block" (click)="closeDialog(false)">Cerrar</button>
+        </div>
+      </div>
+    </form>
+  </div>

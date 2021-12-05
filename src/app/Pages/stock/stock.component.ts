@@ -1,3 +1,4 @@
+import { DescargaComponent } from './../../shared/components/dialog/descarga/descarga.component';
 import { Component, OnInit } from '@angular/core';
 
 //services
@@ -9,7 +10,7 @@ import { RegistrarProveedorComponent} from "@shared/components/dialog/registrar-
 
 export interface PeriodicElement {
   producto: string;
-  referencia: string;                    
+  referencia: string;
   codigo: string;
   cantidad: string;
   valor: string;
@@ -24,8 +25,9 @@ const ELEMENT_DATA: PeriodicElement[] = [];
 })
 
 export class StockComponent implements OnInit {
-  displayedColumns: string[] = ['producto', 'referencia', 'codigo', 'cantidad', 'valor', 'acciones', ];
-  dataSource:any = JSON.parse(localStorage.getItem('stock'));
+  displayedColumns: string[] = ['producto', 'codigoarticulo', 'cantidadInicial', 'precioarticulo', 'acciones' ];
+
+  dataSource:any = JSON.parse(localStorage.getItem('articulos'));
 
 
 
@@ -47,4 +49,20 @@ export class StockComponent implements OnInit {
       this.dataSource = JSON.parse(localStorage.getItem('proveedores'))
     }
   }
+
+  onDonwload(codigoarticulo) {
+    this.dialogService.openDialog(
+      {
+        template: DescargaComponent,
+        paneClass: 'dialog-class',
+        text: codigoarticulo,
+        callback: (res)=>{
+          if(res){
+            this.dataSource = JSON.parse(localStorage.getItem('articulos'))
+          }
+        }
+      }
+    );
+  }
+
 }

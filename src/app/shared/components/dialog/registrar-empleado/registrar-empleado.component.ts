@@ -13,6 +13,7 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 export class RegistrarEmpleadoComponent implements OnInit {
 
   form: FormGroup;
+  empleados:any = JSON.parse(localStorage.getItem('empleados'));
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,6 +24,10 @@ export class RegistrarEmpleadoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    if (this.data.text) {
+      const empleado = this.empleados.find(empleado => empleado.cedulaEmpleado == this.data.text);
+      this.form.patchValue(empleado);
+    }
   }
 
   closeDialog(data){
@@ -47,13 +52,20 @@ export class RegistrarEmpleadoComponent implements OnInit {
       if (!empleados) {
         empleados=[]
       }
-      empleados.push(this.form.value);
+
+      if (!this.data.text) {
+        empleados.push(this.form.value);
+      } else {
+        empleados = this.empleados.filter((empleado: any) => empleado.cedulaEmpleado !== this.data.text);
+        empleados.push(this.form.value);
+      }
+
       localStorage.setItem('empleados', JSON.stringify(empleados))
       this.closeDialog(true);
     }else{
       location.reload();
     }
-    
+
   }
 
 }

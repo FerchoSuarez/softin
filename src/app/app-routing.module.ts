@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
  import { RouterModule, Routes } from '@angular/router';
+import { InicioComponent } from '@Pages/inicio/inicio.component';
 
  //components
  import { LayoutComponent } from "./Pages/layout/layout.component";
@@ -10,7 +11,10 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-     
+      {
+        path: 'inicio',
+        component: InicioComponent
+      },
       {
         path: 'empleados',
         loadChildren: () => import('./Pages/empleados/empleados.module').then((m) => m.EmpleadosModule),
@@ -27,38 +31,21 @@ const routes: Routes = [
         path: 'compras',
         loadChildren: () => import('./Pages/compras/compras.module').then((m) => m.ComprasModule),
       },
-      
+
       {
         path: 'stock',
         loadChildren: () => import('./Pages/stock/stock.module').then((m) => m.StockModule),
       },
       {
         path: '',
-        redirectTo: "/articulos" ,
+        redirectTo: "/login" ,
         pathMatch: "full",
-      },
+      }
     ]
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./Pages/login/login.module').then((m) => m.LoginModule),
-  },
-/* {path: "encabezado", component: EncabezadoComponent},
-{path: "menu", component:MenuComponent},
-{path: "footer", component:FooterComponent},
-{path: "principal", component: PrincipalComponent,},
-{path: "empleados", component: EmpleadosComponent,},
-{path: "registrar-empleados", component: RegistrarEmpleadosComponent},
-{path: "proveedores", component: ProveedoresComponent},
-{path: "registrar-proveedores", component: RegistrarProveedoresComponent},
-{path: "compras", component: ComprasComponent},
-{path: "registrar-compras", component: RegistrarComprasComponent},
-{path: "articulos", component: ArticulosComponent},
-{path: "registrar-articulos", component: RegistrarArticulosComponent}, */
-
 {
   path: "**",
-  redirectTo: "/articulos" ,
+  redirectTo: "/login" ,
   pathMatch: "full",
 },
 

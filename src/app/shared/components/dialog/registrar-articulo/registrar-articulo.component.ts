@@ -18,7 +18,7 @@ export class RegistrarArticuloComponent implements OnInit {
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<RegistrarArticuloComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Alert
-  ) { 
+  ) {
     this.buildForm();
   }
 
@@ -36,6 +36,7 @@ export class RegistrarArticuloComponent implements OnInit {
       producto: ['', [Validators.required]],
       codigoarticulo: ['', [Validators.required]],
       precioarticulo: ['', [Validators.required]],
+      cantidadInicial: ['', [Validators.required]]
     })
   }
 

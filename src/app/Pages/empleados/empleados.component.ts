@@ -26,13 +26,13 @@ const ELEMENT_DATA: PeriodicElement[] = [];
   styleUrls: ['./empleados.component.css']
 })
 export class EmpleadosComponent implements OnInit {
-  
+
   displayedColumns: string[] = ['administrador', 'cedulaEmpleado', 'nombreEmpleado', 'apellidoEmpleado', 'telefonoEmpleado', 'cargoEmpleado', 'acciones', ];
   dataSource:any = JSON.parse(localStorage.getItem('empleados'));
 
-  
+
   constructor(private dialogService: DialogService) { }
-  
+
 
   ngOnInit(): void {
   }
@@ -52,7 +52,7 @@ export class EmpleadosComponent implements OnInit {
         }
       }
     );
-    
+
   }
 
   deleteBuy(element){
@@ -66,6 +66,22 @@ export class EmpleadosComponent implements OnInit {
       localStorage.setItem('empleados', JSON.stringify(empleados))
       this.dataSource = JSON.parse(localStorage.getItem('empleados'))
     }
+  }
+
+  onEdit(cedulaEmpleado:string) {
+    this.dialogService.openDialog(
+      {
+        template: RegistrarEmpleadoComponent,
+        paneClass: 'dialog-class',
+        text: cedulaEmpleado,
+        callback: (res)=>{
+          //do something
+          if(res){
+            this.dataSource = JSON.parse(localStorage.getItem('empleados'))
+          }
+        }
+      }
+    );
   }
 
 }
