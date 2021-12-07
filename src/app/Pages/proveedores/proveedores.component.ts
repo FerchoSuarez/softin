@@ -11,7 +11,7 @@ import { RegistrarProveedorComponent} from "@shared/components/dialog/registrar-
 
 export interface PeriodicElement {
   administrador: string;
-  nombreproveedor: string;                    
+  nombreproveedor: string;
   nitproveedor: string;
   telefonoproveedor: string;
   direccionproveedor: string;
@@ -53,7 +53,7 @@ export class ProveedoresComponent implements OnInit {
         }
       }
     );
-    
+
   }
   deleteBuy(element){
     let proveedores = JSON.parse(localStorage.getItem('proveedores'))
@@ -67,5 +67,23 @@ export class ProveedoresComponent implements OnInit {
       this.dataSource = JSON.parse(localStorage.getItem('proveedores'))
     }
   }
+
+
+  onEdit(nitproveedor:string) {
+    this.dialogService.openDialog(
+      {
+        template:RegistrarProveedorComponent ,
+        paneClass: 'dialog-class',
+        text: nitproveedor,
+        callback: (res)=>{
+          //do something
+          if(res){
+            this.dataSource = JSON.parse(localStorage.getItem('proveedores'))
+          }
+        }
+      }
+    );
+  }
+
 
 }

@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 
 import { Alert } from "@core/models/alert.interface";
 
-import { FormGroup, Validators, FormBuilder } from "@angular/forms";  
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: 'app-registrar-proveedor',
@@ -13,16 +13,21 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 export class RegistrarProveedorComponent implements OnInit {
 
   form: FormGroup;
+  proveedores:any = JSON.parse(localStorage.getItem('proveedores'));
 
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<RegistrarProveedorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Alert
-    ) { 
-    this.buildForm();
+    ) {
+        this.buildForm();
   }
 
   ngOnInit(): void {
+    if (this.data.text) {
+      const proveedor = this.proveedores.find(proveedor => proveedor.nitproveedor == this.data.text);
+      this.form.patchValue(proveedor);
+    }
   }
 
   closeDialog(data){
@@ -46,13 +51,20 @@ export class RegistrarProveedorComponent implements OnInit {
       if (!proveedores) {
         proveedores=[]
       }
-      proveedores.push(this.form.value);
+
+      if (!this.data.text) {
+        proveedores.push(this.form.value);
+      } else {
+        proveedores = this.proveedores.filter((proveedor: any) => proveedor.nitproveedor !== this.data.text);
+        proveedores.push(this.form.value);
+      }
+
       localStorage.setItem('proveedores', JSON.stringify(proveedores))
       this.closeDialog(true);
     }else{
       location.reload();
     }
-    
+
   }
 
 }
